@@ -17,6 +17,8 @@ public class DAO {
 	private static String GET_STUDENT_BY_ID = "SELECT * FROM students WHERE id = ?";
 	private static String DELETE_STUDENT = "DELETE FROM students WHERE id = ?";
 	
+	private static String INSERT_COURSE = "INSERT INTO courses VALUES(?, ?)";
+	
 	public static int insertStudent (Student student) {
 		// TRY-WITH-RESOURCES -> Automatski zatvara konekciju i statement
 		
