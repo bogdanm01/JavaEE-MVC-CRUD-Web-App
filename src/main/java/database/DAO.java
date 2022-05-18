@@ -44,8 +44,8 @@ public class DAO {
 		ArrayList<Student> students;
 		
 		try (Connection sqlConnection = dbManager.getConnection();
-				PreparedStatement prepStatement = sqlConnection.prepareStatement(SELECT_ALL_STUDENTS);) {
-				
+			PreparedStatement prepStatement = sqlConnection.prepareStatement(SELECT_ALL_STUDENTS);) {
+			
 				resultSet = prepStatement.executeQuery();
 				students = new ArrayList<Student>();
 				
@@ -63,7 +63,6 @@ public class DAO {
 					students.add(tmp);
 				}
 				
-				
 				prepStatement.execute();
 				return students;
 				
@@ -71,5 +70,46 @@ public class DAO {
 				e.printStackTrace();
 				return null;
 			}
+	}
+	
+	public static int deleteStudent (int id) {
+		try (Connection sqlConnection = dbManager.getConnection();
+			PreparedStatement prepStatement = sqlConnection.prepareStatement(DELETE_STUDENT);) {
+			
+				prepStatement.setInt(1, id);
+				prepStatement.execute();
+				
+				return 1;		
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return -1;
+			}
+	}
+	
+	public static Student getStudentById (int id) {
+		ResultSet resultSet;
+		
+		try (Connection sqlConnection = dbManager.getConnection();
+			PreparedStatement prepStatement = sqlConnection.prepareStatement(GET_STUDENT_BY_ID);) {
+			
+			resultSet = prepStatement.executeQuery();
+			resultSet.next();
+			
+			Student tmp = new Student();
+			tmp.setId(resultSet.getInt("id"));
+			tmp.setFirstName(resultSet.getString("first_name"));
+			tmp.setLastName(resultSet.getString("last_name"));
+			tmp.setPhone(resultSet.getString("phone"));
+			tmp.setEmail(resultSet.getString("email"));
+			tmp.setCity(resultSet.getString("city"));
+			tmp.setLearningMethod(resultSet.getString("learningMethod"));
+			
+			return tmp;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 }
