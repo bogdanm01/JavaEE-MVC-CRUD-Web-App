@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="Kursevi-Domaci_Bogdan-Milojevic">
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <property name="context-root" value="Kursevi-Domaci_Bogdan-Milojevic"/>
+        <property name="java-output-path" value="/Kursevi-Domaci_Bogdan-Milojevic/build/classes"/>
+    </wb-module>
+</project-modules>
