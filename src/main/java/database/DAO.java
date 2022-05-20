@@ -5,8 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
+import model.Course;
 import model.Student;
 
 public class DAO {
@@ -15,15 +17,20 @@ public class DAO {
 	private static String INSERT_STUDENT = "INSERT INTO students VALUES (null, ?, ?, ?, ?, ?, ?)";
 	private static String SELECT_ALL_STUDENTS = "SELECT * FROM students";
 	private static String GET_STUDENT_BY_ID = "SELECT * FROM students WHERE id = ?";
+	private static String UPDATE_STUDENT = "UPDATE students SET first_name = ?, last_name = ?";
 	private static String DELETE_STUDENT = "DELETE FROM students WHERE id = ?";
 	
 	private static String INSERT_COURSE = "INSERT INTO courses VALUES(?, ?)";
 	
-	public static int insertStudent (Student student) {
+	public int insertStudent (Student student) {
 		// TRY-WITH-RESOURCES -> Automatski zatvara konekciju i statement
+		// returns id of last inserted student
+		
+		ResultSet resultSet;
+		int lastInsStudentId;
 		
 		try (Connection sqlConnection = dbManager.getConnection();
-			PreparedStatement prepStatement = sqlConnection.prepareStatement(INSERT_STUDENT);) {
+			PreparedStatement prepStatement = sqlConnection.prepareStatement(INSERT_STUDENT, Statement.RETURN_GENERATED_KEYS);) {
 			
 			prepStatement.setString(1, student.getFirstName());
 			prepStatement.setString(2, student.getLastName());
@@ -32,8 +39,12 @@ public class DAO {
 			prepStatement.setString(5, student.getCity());
 			prepStatement.setString(6, student.getLearningMethod());
 			
-			prepStatement.execute();
-			return 1;
+			
+			resultSet = prepStatement.executeQuery();
+			resultSet.last(); // moves resultset pointer to last row
+			lastInsStudentId = resultSet.getInt(1);
+			
+			return lastInsStudentId;
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -41,7 +52,7 @@ public class DAO {
 		}
 	}
 	
-	public static ArrayList<Student> getAllStudents() {
+	public ArrayList<Student> getAllStudents() {
 		ResultSet resultSet;
 		ArrayList<Student> students;
 		
@@ -74,7 +85,7 @@ public class DAO {
 			}
 	}
 	
-	public static int deleteStudent (int id) {
+	public int deleteStudent (int id) {
 		try (Connection sqlConnection = dbManager.getConnection();
 			PreparedStatement prepStatement = sqlConnection.prepareStatement(DELETE_STUDENT);) {
 			
@@ -89,7 +100,7 @@ public class DAO {
 			}
 	}
 	
-	public static Student getStudentById (int id) {
+	public Student getStudentById (int id) {
 		ResultSet resultSet;
 		
 		try (Connection sqlConnection = dbManager.getConnection();
@@ -112,6 +123,22 @@ public class DAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
+		}
+	}
+	
+	public int insertCourses(Course c) {
+		try (Connection sqlConnection = dbManager.getConnection();
+			PreparedStatement prepStatement = sqlConnection.prepareStatement(INSERT_COURSE);) {
+			
+				prepStatement.setInt(1, c.getId());
+				prepStatement.setString(2, c.getName());
+				
+				prepStatement.execute();
+				return 1;
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return -1;
 		}
 	}
 }

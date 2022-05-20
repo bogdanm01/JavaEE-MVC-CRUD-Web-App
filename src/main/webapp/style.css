@@ -1,0 +1,40 @@
+@charset "ISO-8859-1";
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+#wrapper {
+    display: flex;
+    align-items: stretch;
+    color: #fafafa;
+    width: 100%;
+}
+
+#side-bar {
+    height: 100%;
+    background: rgb(141, 141, 141);
+    width: 20%;
+}
+
+#content {
+    width: 80%;
+    background: red;
+}
