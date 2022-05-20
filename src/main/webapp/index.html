@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="flex-container">
+      <section id="sidebar">
+        <div class="logo">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <h1>Kursevi</h1>
+        </div>
+        <nav id="navigation">
+          <ul>
+            <li class="selected">
+              <i class="fa-solid fa-circle-plus"></i>
+              <a href="">Upis polaznika</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-list-ul"></i>
+              <a href="">Prikaz polaznika</a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+      <section id="main-content">
+        <form action="">
+          <div class="input-group">
+            <label for="">Ime</label>
+            <input type="text" name="firstName" id="" required />
+          </div>
+          <div class="input-group">
+            <label for="">Prezime</label>
+            <input type="text" name="lastName" id="" required />
+          </div>
+
+          <div class="input-group">
+            <label for="">Telefon</label>
+            <input type="tel" name="phone" id="" required />
+          </div>
+          <div class="input-group">
+            <label for="">Email</label>
+            <input type="email" name="email" id="" required />
+          </div>
+          <div class="input-group">
+            <label for="">Grad</label>
+            <input type="text" name="city" id="" required />
+          </div>
+          <div class="input-group">
+            <label for="">Metod slušanja nastave</label>
+            <span
+              ><input type="radio" name="learningMethod" value="online" id="" />
+              Online</span
+            >
+            <span
+              ><input
+                type="radio"
+                name="learningMethod"
+                value="in-person"
+                id=""
+              />
+              Uzivo</span
+            >
+          </div>
+        </form>
+      </section>
+    </div>
+  </body>
+</html>

@@ -126,12 +126,12 @@ public class DAO {
 		}
 	}
 	
-	public int insertCourses(Course c) {
+	public int insertCourses(Course course) {
 		try (Connection sqlConnection = dbManager.getConnection();
 			PreparedStatement prepStatement = sqlConnection.prepareStatement(INSERT_COURSE);) {
 			
-				prepStatement.setInt(1, c.getId());
-				prepStatement.setString(2, c.getName());
+				prepStatement.setInt(1, course.getId());
+				prepStatement.setString(2, course.getName());
 				
 				prepStatement.execute();
 				return 1;

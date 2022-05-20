@@ -1,16 +1,12 @@
 package controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.Writer;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.jasper.tagplugins.jstl.core.Out;
 
 import database.DAO;
 import model.Course;
@@ -26,11 +22,9 @@ public class StudentController extends HttpServlet {
 	private static String PHONE_REGEX = "[0-9 -\\\\+]+$";
 	private static String CITY_REGEX = "[a-z šŠđĐčČćĆžŽ]+$";
 
-
     public StudentController() {
         super();
     }
-
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action"); 
@@ -85,8 +79,8 @@ public class StudentController extends HttpServlet {
 			
 			if (lastStudentId != -1) {
 				for (String courseName : coursesArray) {
-					Course c = new Course(lastStudentId, courseName);
-					dao.insertCourses(c);
+					Course course = new Course(lastStudentId, courseName);
+					dao.insertCourses(course);
 				}
 			}
 			
