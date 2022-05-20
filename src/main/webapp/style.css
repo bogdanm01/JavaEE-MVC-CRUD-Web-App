@@ -137,6 +137,21 @@ label {
   font-family: "Open-sans", sans-serif;
 }
 
+button[type="submit"] {
+  padding: 10px 15px;
+  color: #fff;
+  background: #ff793f;
+  border: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+button:hover {
+  opacity: 0.85;
+}
 /* form {
   padding: 0 400px;
 } */

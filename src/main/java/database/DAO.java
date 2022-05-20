@@ -20,7 +20,7 @@ public class DAO {
 	private static String UPDATE_STUDENT = "UPDATE students SET first_name = ?, last_name = ?";
 	private static String DELETE_STUDENT = "DELETE FROM students WHERE id = ?";
 	
-	private static String INSERT_COURSE = "INSERT INTO courses VALUES(?, ?)";
+	private static String INSERT_COURSE = "INSERT INTO courses VALUES(null, ?, ?)";
 	
 	public int insertStudent (Student student) {
 		// TRY-WITH-RESOURCES -> Automatski zatvara konekciju i statement
@@ -40,10 +40,11 @@ public class DAO {
 			prepStatement.setString(6, student.getLearningMethod());
 			
 			
-			resultSet = prepStatement.executeQuery();
+			prepStatement.executeUpdate();
+			resultSet = prepStatement.getGeneratedKeys();
 			resultSet.last(); // moves resultset pointer to last row
-			lastInsStudentId = resultSet.getInt(1);
 			
+			lastInsStudentId = resultSet.getInt(1);
 			return lastInsStudentId;
 			
 		} catch (SQLException e) {
@@ -133,7 +134,7 @@ public class DAO {
 				prepStatement.setInt(1, course.getId());
 				prepStatement.setString(2, course.getName());
 				
-				prepStatement.execute();
+				prepStatement.executeUpdate();
 				return 1;
 		
 		} catch (SQLException e) {

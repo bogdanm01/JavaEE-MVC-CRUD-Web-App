@@ -61,7 +61,7 @@
             <label for="">Metod slušanja nastave</label>
             <span
               ><input type="radio" name="learningMethod" value="online" id="" />
-              Online</span
+              <label for="">Online</label></span
             >
             <span
               ><input
@@ -70,9 +70,40 @@
                 value="in-person"
                 id=""
               />
-              Uzivo</span
+              <label for="">Uzivo</label></span
             >
           </div>
+          <div class="input-group">
+            <label for="">Kursevi</label>
+            <span>
+              <input
+                type="checkbox"
+                name="courseName"
+                value="Java Web Development"
+                id=""
+              />
+              <label for="">Java Web Development</label>
+            </span>
+            <span>
+              <input
+                type="checkbox"
+                name="courseName"
+                value="Front End Web Development"
+                id=""
+              />
+              <label for="">Front End Web Development</label>
+            </span>
+            <span>
+              <input
+                type="checkbox"
+                name="courseName"
+                value="Adobe Photoshop Fundamentals"
+                id=""
+              />
+              <label for="">Adobe Photoshop Fundamentals</label>
+            </span>
+          </div>
+          <button type="submit" value="insertStudent" name="action" />Prijavi se!</button>
         </form>
       </section>
     </div>

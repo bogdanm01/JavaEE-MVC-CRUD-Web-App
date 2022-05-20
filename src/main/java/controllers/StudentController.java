@@ -23,20 +23,16 @@ public class StudentController extends HttpServlet {
 	private static String CITY_REGEX = "[a-z šŠđĐčČćĆžŽ]+$";
 
     public StudentController() {
-        super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action"); 
 		
-		if(action != null & !action.equals("")) {
-			switch (action) {
-			case "insertStudent": {
+		if(action != null && !action.equals("")) {
+	
+			if (action.equals("insertStudent")) {
 				insertStudent(request);
-//				response.sendRedirect("");
-			}
-			default:
-				throw new IllegalArgumentException("Unexpected value: " + action);
+				response.sendRedirect("index.jsp");
 			}
 		}
 	}
