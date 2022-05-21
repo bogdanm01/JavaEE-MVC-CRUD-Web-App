@@ -46,6 +46,7 @@ public class StudentController extends HttpServlet {
 			
 			if (action.equals("showStudentList")) {
 				redirectToShowStudents(request, response);
+			
 			}
 		}
 	}
@@ -88,10 +89,10 @@ public class StudentController extends HttpServlet {
 		
 		// perform validation
 		
-		if ((firstName != null && firstName.length() >= 3 && firstName.matches(NAME_REGEX)) ||
-			(lastName != null && lastName.length() >= 3 && lastName.matches(NAME_REGEX)) ||
-			(phone != null && phone.length() > 0 && lastName.matches(PHONE_REGEX)) ||
-			(email != null && email.matches(EMAIL_REGEX)) ||
+		if ((firstName != null && firstName.length() >= 3 && firstName.matches(NAME_REGEX)) &&
+			(lastName != null && lastName.length() >= 3 && lastName.matches(NAME_REGEX)) &&
+			(phone != null && phone.length() > 0 && lastName.matches(PHONE_REGEX)) &&
+			(email != null && email.matches(EMAIL_REGEX)) &&
 			(city != null && city.length() > 0 && city.matches(CITY_REGEX))) {
 			
 			Student s = new Student();
