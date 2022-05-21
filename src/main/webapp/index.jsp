@@ -39,7 +39,7 @@ pageEncoding="ISO-8859-1"%>
         <div class="form-wrap">
           <h1>Aplikacioni formular za prijavu na kurseve
           </h1>
-          <form action="StudentController" method="GET" id="form">
+          <form action="StudentController" method="get">
             <div class="input-group">
               <label for="">Ime</label>
               <input type="text" name="firstName" id="firstName" required/>

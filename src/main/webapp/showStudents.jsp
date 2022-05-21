@@ -68,10 +68,10 @@
                 <td><%= s.getLearningMethod() %></td>
                 <td>
                   <span class="action-buttons">
-                    <a href="StudentController?action=showStudentEditForm&id=<%= s.getId() %>>" id="editButton"
+                    <a href="StudentController?action=showStudentEditForm&id=<%= s.getId() %>" id="editButton"
                       ><i class="fa-solid fa-2x fa-square-pen"></i
                     ></a>
-                    <a href="StudentController?action=deleteStudent&id=<%= s.getId() %>>" id="deleteButton"
+                    <a href="StudentController?action=deleteStudent&id=<%= s.getId() %>" id="deleteButton"
                       ><i class="fa-solid fa-2x fa-square-minus"></i
                     ></a>
                   </span>

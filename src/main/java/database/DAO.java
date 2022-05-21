@@ -72,7 +72,7 @@ public class DAO {
 					tmp.setPhone(resultSet.getString("phone"));
 					tmp.setEmail(resultSet.getString("email"));
 					tmp.setCity(resultSet.getString("city"));
-					tmp.setLearningMethod(resultSet.getString("learningMethod"));
+					tmp.setLearningMethod(resultSet.getString("learning_method"));
 					
 					students.add(tmp);
 				}
