@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Kursevi | Prikaz Studenata</title>
+  </head>
+  <body>
+    <div class="flex-container">
+      <section id="sidebar">
+        <div class="logo">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <h1>Kursevi</h1>
+        </div>
+        <nav id="navigation">
+          <ul>
+            <a href="index.html">
+              <li><i class="fa-solid fa-circle-plus"></i> Upis polaznika</li>
+            </a>
+            <a href="showStudents.html">
+              <li class="selected">
+                <i class="fa-solid fa-list-ul"></i> Prikaz polaznika
+              </li>
+            </a>
+          </ul>
+        </nav>
+      </section>
+      <section class="main-content" id="show-students">
+        <h1>Prikaz svih polaznika</h1>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <th>Ime</th>
+              <th>Prezime</th>
+              <th>Telefon</th>
+              <th>Email</th>
+              <th>Grad</th>
+              <th>Nacin ucenja</th>
+              <th>Akcije</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Bogdan</td>
+                <td>Milojevic</td>
+                <td>065 516 0718</td>
+                <td>milojevicbogdan01@gmail.com</td>
+                <td>Cajetina</td>
+                <td>Online</td>
+                <td>
+                  <span class="action-buttons">
+                    <a href="" id="editButton"
+                      ><i class="fa-solid fa-2x fa-square-pen"></i
+                    ></a>
+                    <a href="" id="deleteButton"
+                      ><i class="fa-solid fa-2x fa-square-minus"></i
+                    ></a>
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,6 +1,7 @@
 package controllers;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,12 +35,43 @@ public class StudentController extends HttpServlet {
 				insertStudent(request);
 				response.sendRedirect("index.jsp");
 			}
+			
+			if (action.equals("deleteStudent")) {
+				deleteStudent(request, response);
+			}
+			
+			if (action.equals("showStudentInsert")) {
+				response.sendRedirect("index.jsp");
+			}
+			
+			if (action.equals("showStudentList")) {
+				redirectToShowStudents(request, response);
+			}
 		}
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+	}
+	
+	private void deleteStudent(HttpServletRequest request, HttpServletResponse response) {
+		String str_studentId = request.getParameter("id");
+		try {
+			int studentId = Integer.parseInt(str_studentId);
+			dao.deleteStudent(studentId);
+			redirectToShowStudents(request, response);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void redirectToShowStudents(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		ArrayList<Student> studentList = dao.getAllStudents();
+		request.setAttribute("studentList", studentList);
+		request.getRequestDispatcher("showStudents.jsp").forward(request, response);
 	}
 	
 	private void insertStudent(HttpServletRequest request) {
@@ -81,10 +113,8 @@ public class StudentController extends HttpServlet {
 			}
 			
 		} else {
-			// TODO: Implement this
+			System.out.println("Erorr: Invalid input!");
 		}
 			
-			
 	}
-
 }

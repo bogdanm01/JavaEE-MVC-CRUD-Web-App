@@ -23,90 +23,92 @@ pageEncoding="ISO-8859-1"%>
         </div>
         <nav id="navigation">
           <ul>
-            <li class="selected">
-              <i class="fa-solid fa-circle-plus"></i>
-              <a href="">Upis polaznika</a>
-            </li>
-            <li>
-              <i class="fa-solid fa-list-ul"></i>
-              <a href="">Prikaz polaznika</a>
-            </li>
+            <a href="StudentController?action=showStudentInsert">
+              <li class="selected"><i class="fa-solid fa-circle-plus"></i> Upis polaznika</li>
+            </a>
+            
+            <a href="StudentController?action=showStudentList">
+              <li><i class="fa-solid fa-list-ul"></i> Prikaz polaznika</li>
+            </a>
+            
           </ul>
         </nav>
       </section>
-      <section id="main-content">
-        <form action="StudentController" method="get">
-          <div class="input-group">
-            <label for="">Ime</label>
-            <input type="text" name="firstName" id="" required />
-          </div>
-          <div class="input-group">
-            <label for="">Prezime</label>
-            <input type="text" name="lastName" id="" required />
-          </div>
-
-          <div class="input-group">
-            <label for="">Telefon</label>
-            <input type="tel" name="phone" id="" required />
-          </div>
-          <div class="input-group">
-            <label for="">Email</label>
-            <input type="email" name="email" id="" required />
-          </div>
-          <div class="input-group">
-            <label for="">Grad</label>
-            <input type="text" name="city" id="" required />
-          </div>
-          <div class="input-group">
-            <label for="">Metod slušanja nastave</label>
-            <span
-              ><input type="radio" name="learningMethod" value="online" id="" />
-              <label for="">Online</label></span
-            >
-            <span
-              ><input
-                type="radio"
-                name="learningMethod"
-                value="in-person"
-                id=""
-              />
-              <label for="">Uzivo</label></span
-            >
-          </div>
-          <div class="input-group">
-            <label for="">Kursevi</label>
-            <span>
-              <input
-                type="checkbox"
-                name="courseName"
-                value="Java Web Development"
-                id=""
-              />
-              <label for="">Java Web Development</label>
-            </span>
-            <span>
-              <input
-                type="checkbox"
-                name="courseName"
-                value="Front End Web Development"
-                id=""
-              />
-              <label for="">Front End Web Development</label>
-            </span>
-            <span>
-              <input
-                type="checkbox"
-                name="courseName"
-                value="Adobe Photoshop Fundamentals"
-                id=""
-              />
-              <label for="">Adobe Photoshop Fundamentals</label>
-            </span>
-          </div>
-          <button type="submit" value="insertStudent" name="action">
-            Prijavi se!
-          </button>
-        </form>
+      <section class="main-content" id="insert-students">
+        
+        <div class="form-wrap">
+          <h1>Aplikacioni formular za prijavu na kurseve
+          </h1>
+          <form action="StudentController" method="GET" id="form">
+            <div class="input-group">
+              <label for="">Ime</label>
+              <input type="text" name="firstName" id="firstName" required/>
+            </div>
+            <div class="input-group">
+              <label for="">Prezime</label>
+              <input type="text" name="lastName" id="" required/>
+            </div>
+  
+            <div class="input-group">
+              <label for="">Telefon</label>
+              <input type="tel" name="phone" id="" required />
+            </div>
+            <div class="input-group">
+              <label for="">Email</label>
+              <input type="email" name="email" id="" required />
+            </div>
+            <div class="input-group">
+              <label for="">Grad</label>
+              <input type="text" name="city" id="" required />
+            </div>
+            <div class="input-group">
+              <label for="">Metod slušanja nastave</label>
+              <span>
+                <input type="radio" name="learningMethod" value="online" id="" />
+                <label for="">Online - putem Skype-a</label>
+              </span>
+              <span><input
+                  type="radio"
+                  name="learningMethod"
+                  value="in-person"
+                  id=""
+                />
+                <label for="">Uzivo - u ucionici</label></span
+              >
+            </div>
+            <div class="input-group">
+              <label for="">Kursevi</label>
+              <span>
+                <input
+                  type="checkbox"
+                  name="courseName"
+                  value="Java Web Development"
+                  id=""
+                />
+                <label for="">Java Web Development</label>
+              </span>
+              <span>
+                <input
+                  type="checkbox"
+                  name="courseName"
+                  value="Front End Web Development"
+                  id=""
+                />
+                <label for="">Front End Web Development</label>
+              </span>
+              <span>
+                <input
+                  type="checkbox"
+                  name="courseName"
+                  value="Adobe Photoshop Fundamentals"
+                  id=""
+                />
+                <label for="">Adobe Photoshop Fundamentals</label>
+              </span>
+            </div>
+            <button id="submitFormButton" value="insertStudent" type="submit" name="action">Prijavi se!</button>
+          </form>
+        </div>       
       </section>
     </div>
   </body>
