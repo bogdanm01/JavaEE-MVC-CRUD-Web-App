@@ -281,6 +281,11 @@ table th {
   color: #eb5e5e;
 }
 
+.action-buttons #deleteButton:hover,
+.action-buttons #editButton:hover {
+  color: #444;
+}
+
 .btn {
   display: inline-block;
   color: #fff;
@@ -293,4 +298,8 @@ table th {
   position: absolute;
   top: 10px;
   left: 10px;
+}
+
+.back:hover {
+	background: #444;
 }

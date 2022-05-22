@@ -38,7 +38,7 @@ pageEncoding="UTF-8"%> <!-- PROMENJEN ENCODING NA UTF-8 -->
         <div class="form-wrap">
           <h1>Aplikacioni formular za prijavu na kurseve
           </h1>
-          <form action="StudentController" method="get">
+          <form action="StudentController" method="get" id="form">
             <div class="input-group">
               <label for="">Ime</label>
               <input type="text" name="firstName" id="firstName" required/>
@@ -82,7 +82,7 @@ pageEncoding="UTF-8"%> <!-- PROMENJEN ENCODING NA UTF-8 -->
                   type="checkbox"
                   name="courseName"
                   value="Java Web Development"
-                  id=""
+                  id="check1"
                 />
                 <label for="">Java Web Development</label>
               </span>
@@ -91,7 +91,7 @@ pageEncoding="UTF-8"%> <!-- PROMENJEN ENCODING NA UTF-8 -->
                   type="checkbox"
                   name="courseName"
                   value="Front End Web Development"
-                  id=""
+                  id="check2"
                 />
                 <label for="">Front End Web Development</label>
               </span>
@@ -100,12 +100,12 @@ pageEncoding="UTF-8"%> <!-- PROMENJEN ENCODING NA UTF-8 -->
                   type="checkbox"
                   name="courseName"
                   value="Adobe Photoshop Fundamentals"
-                  id=""
+                  id="check3"
                 />
                 <label for="">Adobe Photoshop Fundamentals</label>
               </span>
             </div>
-            <button id="submitFormButton" value="insertStudent" type="submit" name="action">Prijavi se!</button>
+            <button id="submitFormButton" value="insertStudent" name="action">Prijavi se!</button>
           </form>
         </div>       
       </section>
