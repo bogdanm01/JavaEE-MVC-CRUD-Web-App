@@ -4,7 +4,7 @@ pageEncoding="UTF-8"%> <!-- PROMENJEN ENCODING NA UTF-8 -->
 <html>
   <head>
     <meta charset="UTF-8" /> <!-- PROMENJEN ENCODING NA UTF-8 -->
-    <title>Courses | Home</title>
+    <title>Kursevi | Prijava</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -35,7 +35,6 @@ pageEncoding="UTF-8"%> <!-- PROMENJEN ENCODING NA UTF-8 -->
         </nav>
       </section>
       <section class="main-content" id="insert-students">
-        
         <div class="form-wrap">
           <h1>Aplikacioni formular za prijavu na kurseve
           </h1>
@@ -64,16 +63,16 @@ pageEncoding="UTF-8"%> <!-- PROMENJEN ENCODING NA UTF-8 -->
             <div class="input-group">
               <label for="">Metod slusanja nastave</label>
               <span>
-                <input type="radio" name="learningMethod" value="online" id="" />
-                <label for="">Online - putem Skype-a</label>
+                <input type="radio" name="learningMethod" value="Onlajn" id="" />
+                <label for="">Onlajn - putem Skype-a</label>
               </span>
               <span><input
                   type="radio"
                   name="learningMethod"
-                  value="in-person"
+                  value="Uživo"
                   id=""
                 />
-                <label for="">Uzivo - u ucionici</label></span
+                <label for="">Uživo - u učionici</label></span
               >
             </div>
             <div class="input-group">

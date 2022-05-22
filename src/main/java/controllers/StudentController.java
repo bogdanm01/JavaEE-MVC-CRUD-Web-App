@@ -21,7 +21,7 @@ public class StudentController extends HttpServlet {
 	
 	private static String EMAIL_REGEX = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
 	private static String NAME_REGEX = "[a-zA-ZšŠđĐčČćĆžŽ]+$";
-	private static String PHONE_REGEX = "[0-9 -+]+$";
+	private static String PHONE_REGEX = "[0-9 \\-+]+$";
 	private static String CITY_REGEX = "[a-zA-Z šŠđĐčČćĆžŽ]+$";
 
     public StudentController() {
@@ -37,23 +37,41 @@ public class StudentController extends HttpServlet {
 				response.sendRedirect("index.jsp");
 			}
 			
-			if (action.equals("deleteStudent")) {
+			else if (action.equals("deleteStudent")) {
 				deleteStudent(request, response);
 			}
 			
-			if (action.equals("showStudentInsert")) {
+			else if (action.equals("showStudentInsert")) {
 				response.sendRedirect("index.jsp");
 			}
 			
-			if (action.equals("showStudentList")) {
+			else if (action.equals("showStudentList")) {
 				redirectToShowStudents(request, response);
 			
+			}
+			
+			else if (action.equals("showStudentEditForm")) {
+				showStudentEditForm(request, response);
 			}
 		}
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+	
+	private void showStudentEditForm(HttpServletRequest request, HttpServletResponse response) {
+		String str_studentId = request.getParameter("id");
+		
+		try {
+			int studentId = Integer.parseInt(str_studentId);
+			request.setAttribute("student", dao.getStudentById(studentId));
+			request.getRequestDispatcher("updateStudent.jsp").forward(request, response);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 	
@@ -101,7 +119,8 @@ public class StudentController extends HttpServlet {
 			(lastName != null && lastName.length() >= 3 && lastName.matches(NAME_REGEX)) &&
 			(phone != null && phone.length() > 0 && phone.matches(PHONE_REGEX)) &&
 			(email != null && email.matches(EMAIL_REGEX)) &&
-			(city != null && city.length() > 0 && city.matches(CITY_REGEX))) {
+			(city != null && city.length() > 0 && city.matches(CITY_REGEX)) && 
+			coursesArray != null) {
 			
 			Student s = new Student();
 			
@@ -127,6 +146,7 @@ public class StudentController extends HttpServlet {
 			System.out.println("LastName: " + lastName.matches(NAME_REGEX));
 			System.out.println("Email: " + email.matches(EMAIL_REGEX));
 			System.out.println("City: " + city.matches(CITY_REGEX));
+			System.out.println("Phone: " + phone.matches(PHONE_REGEX));
 		}
 			
 	}

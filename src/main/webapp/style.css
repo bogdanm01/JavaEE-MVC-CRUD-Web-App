@@ -59,6 +59,7 @@ ul {
   flex: 4.5;
   padding: 25px;
   background: #fafafa;
+  position: relative;
 }
 
 #insert-students {
@@ -278,4 +279,18 @@ table th {
 
 .action-buttons #deleteButton {
   color: #eb5e5e;
+}
+
+.btn {
+  display: inline-block;
+  color: #fff;
+  background: #969696;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.back {
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }

@@ -17,7 +17,7 @@ public class DAO {
 	private static String INSERT_STUDENT = "INSERT INTO students VALUES (null, ?, ?, ?, ?, ?, ?)";
 	private static String SELECT_ALL_STUDENTS = "SELECT * FROM students";
 	private static String GET_STUDENT_BY_ID = "SELECT * FROM students WHERE id = ?";
-	private static String UPDATE_STUDENT = "UPDATE students SET first_name = ?, last_name = ?";
+	private static String UPDATE_STUDENT = "UPDATE students SET first_name = ?, last_name = ?, phone = ?, email = ?, city = ?, learning_method = ?";
 	private static String DELETE_STUDENT = "DELETE FROM students WHERE id = ?";
 	
 	private static String INSERT_COURSE = "INSERT INTO courses VALUES(null, ?, ?)";
@@ -107,7 +107,10 @@ public class DAO {
 		try (Connection sqlConnection = dbManager.getConnection();
 			PreparedStatement prepStatement = sqlConnection.prepareStatement(GET_STUDENT_BY_ID);) {
 			
-			resultSet = prepStatement.executeQuery();
+			prepStatement.setInt(1, id);
+			prepStatement.execute();
+			
+			resultSet = prepStatement.getResultSet();
 			resultSet.next();
 			
 			Student tmp = new Student();
@@ -117,7 +120,9 @@ public class DAO {
 			tmp.setPhone(resultSet.getString("phone"));
 			tmp.setEmail(resultSet.getString("email"));
 			tmp.setCity(resultSet.getString("city"));
-			tmp.setLearningMethod(resultSet.getString("learningMethod"));
+			tmp.setLearningMethod(resultSet.getString("learning_method"));
+			
+			System.out.println(tmp.getPhone());
 			
 			return tmp;
 			
