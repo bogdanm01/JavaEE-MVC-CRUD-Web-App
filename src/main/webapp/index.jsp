@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%> <!-- PROMENJEN ENCODING NA UTF-8 -->
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="ISO-8859-1" />
+    <meta charset="UTF-8" /> <!-- PROMENJEN ENCODING NA UTF-8 -->
     <title>Courses | Home</title>
     <link
       rel="stylesheet"
@@ -62,7 +62,7 @@ pageEncoding="ISO-8859-1"%>
               <input type="text" name="city" id="" required />
             </div>
             <div class="input-group">
-              <label for="">Metod slušanja nastave</label>
+              <label for="">Metod slusanja nastave</label>
               <span>
                 <input type="radio" name="learningMethod" value="online" id="" />
                 <label for="">Online - putem Skype-a</label>

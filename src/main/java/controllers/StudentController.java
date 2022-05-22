@@ -1,6 +1,7 @@
 package controllers;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -19,9 +20,9 @@ public class StudentController extends HttpServlet {
 	private static DAO dao = new DAO();
 	
 	private static String EMAIL_REGEX = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
-	private static String NAME_REGEX = "[a-zšŠđĐčČćĆžŽ]+$";
-	private static String PHONE_REGEX = "[0-9 -\\\\+]+$";
-	private static String CITY_REGEX = "[a-z šŠđĐčČćĆžŽ]+$";
+	private static String NAME_REGEX = "[a-zA-ZšŠđĐčČćĆžŽ]+$";
+	private static String PHONE_REGEX = "[0-9 -+]+$";
+	private static String CITY_REGEX = "[a-zA-Z šŠđĐčČćĆžŽ]+$";
 
     public StudentController() {
     }
@@ -76,7 +77,14 @@ public class StudentController extends HttpServlet {
 	}
 	
 	private void insertStudent(HttpServletRequest request) {
+		
 		int lastStudentId;
+		 try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		String firstName = request.getParameter("firstName").trim();
 		String lastName = request.getParameter("lastName").trim();
@@ -91,7 +99,7 @@ public class StudentController extends HttpServlet {
 		
 		if ((firstName != null && firstName.length() >= 3 && firstName.matches(NAME_REGEX)) &&
 			(lastName != null && lastName.length() >= 3 && lastName.matches(NAME_REGEX)) &&
-			(phone != null && phone.length() > 0 && lastName.matches(PHONE_REGEX)) &&
+			(phone != null && phone.length() > 0 && phone.matches(PHONE_REGEX)) &&
 			(email != null && email.matches(EMAIL_REGEX)) &&
 			(city != null && city.length() > 0 && city.matches(CITY_REGEX))) {
 			
@@ -103,7 +111,7 @@ public class StudentController extends HttpServlet {
 			s.setEmail(email);
 			s.setCity(city);
 			s.setLearningMethod(learningMethod);
-			
+						
 			lastStudentId = dao.insertStudent(s);
 			
 			if (lastStudentId != -1) {
@@ -115,6 +123,10 @@ public class StudentController extends HttpServlet {
 			
 		} else {
 			System.out.println("Erorr: Invalid input!");
+			System.out.println("FirstName: " + firstName.matches(NAME_REGEX));
+			System.out.println("LastName: " + lastName.matches(NAME_REGEX));
+			System.out.println("Email: " + email.matches(EMAIL_REGEX));
+			System.out.println("City: " + city.matches(CITY_REGEX));
 		}
 			
 	}
