@@ -39,7 +39,6 @@ public class DAO {
 			prepStatement.setString(5, student.getCity());
 			prepStatement.setString(6, student.getLearningMethod());
 			
-			
 			prepStatement.executeUpdate();
 			resultSet = prepStatement.getGeneratedKeys();
 			resultSet.last(); // moves resultset pointer to last row
@@ -121,8 +120,6 @@ public class DAO {
 			tmp.setEmail(resultSet.getString("email"));
 			tmp.setCity(resultSet.getString("city"));
 			tmp.setLearningMethod(resultSet.getString("learning_method"));
-			
-			System.out.println(tmp.getPhone());
 			
 			return tmp;
 			

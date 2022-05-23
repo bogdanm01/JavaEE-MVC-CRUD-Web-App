@@ -61,7 +61,7 @@ pageEncoding="UTF-8"%> <!-- PROMENJEN ENCODING NA UTF-8 -->
               <input type="text" name="city" id="" required />
             </div>
             <div class="input-group">
-              <label for="">Metod slusanja nastave</label>
+              <label for="">Metod slušanja nastave</label>
               <span>
                 <input type="radio" name="learningMethod" value="Onlajn" id="" />
                 <label for="">Onlajn - putem Skype-a</label>

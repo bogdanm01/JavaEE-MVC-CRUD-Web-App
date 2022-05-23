@@ -64,7 +64,7 @@
               <input type="text" name="city" id="" value=<%= currentStudent.getCity() %> required />
             </div>
             <div class="input-group">
-              <label for="">Metod slusanja nastave</label>
+              <label for="">Metod slušanja nastave</label>
               <span>
                 <input 
                 type="radio" 
