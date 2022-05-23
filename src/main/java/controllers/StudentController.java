@@ -24,8 +24,7 @@ public class StudentController extends HttpServlet {
 	private static String PHONE_REGEX = "[0-9 \\-+]+$";
 	private static String CITY_REGEX = "[a-zA-Z šŠđĐčČćĆžŽ]+$";
 
-    public StudentController() {
-    }
+    public StudentController() {}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action"); 

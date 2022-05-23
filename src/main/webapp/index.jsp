@@ -105,7 +105,7 @@ pageEncoding="UTF-8"%> <!-- PROMENJEN ENCODING NA UTF-8 -->
                 <label for="">Adobe Photoshop Fundamentals</label>
               </span>
             </div>
-            <button id="submitFormButton" value="insertStudent" name="action">Prijavi se!</button>
+            <button id="submitFormButton" value="insertStudent" type="submit" name="action">Prijavi se!</button>
           </form>
         </div>       
       </section>
