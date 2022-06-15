@@ -57,11 +57,83 @@ public class StudentController extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action = request.getParameter("action"); 
 		
+		if(action != null && !action.equals("")) {
+			
+			if(action.equals("editStudent")) {
+				System.out.println("lol");
+				editStudent(request, response);
+				redirectToShowStudents(request, response);
+			}
+		}
+	}
+	
+	private void editStudent(HttpServletRequest request, HttpServletResponse response) {
+		 try {
+				request.setCharacterEncoding("UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		try {
+			int studentId = Integer.parseInt(request.getParameter("id"));
+			
+			String firstName = request.getParameter("firstName").trim();
+			String lastName = request.getParameter("lastName").trim();
+			String phone = request.getParameter("phone").trim();
+			String email = request.getParameter("email").trim();
+			String city = request.getParameter("city").trim();
+			String learningMethod = request.getParameter("learningMethod");
+			
+			System.out.println("ovde 0000");
+			
+			if ((firstName != null && firstName.length() >= 3 && firstName.matches(NAME_REGEX)) &&
+				(lastName != null && lastName.length() >= 3 && lastName.matches(NAME_REGEX)) &&
+				(phone != null && phone.length() > 0 && phone.matches(PHONE_REGEX)) &&
+				(email != null && email.matches(EMAIL_REGEX)) &&
+				(city != null && city.length() > 0)) {
+					
+					Student updatedStudent = new Student();
+					
+					updatedStudent.setFirstName(firstName);
+					updatedStudent.setLastName(lastName);
+					updatedStudent.setPhone(phone);
+					updatedStudent.setEmail(email);
+					updatedStudent.setCity(city);
+					updatedStudent.setLearningMethod(learningMethod);
+					updatedStudent.setId(studentId);
+					
+					System.out.println("ovde 1111");
+								
+					dao.updateStudent(updatedStudent);
+					
+					System.out.println("ovde1 2222");
+					
+				} else {
+					System.out.println("Erorr: Invalid input!");
+					System.out.println("FirstName: " + firstName.matches(NAME_REGEX));
+					System.out.println("LastName: " + lastName.matches(NAME_REGEX));
+					System.out.println("Email: " + email.matches(EMAIL_REGEX));
+//					System.out.println("City: " + city.matches(CITY_REGEX));
+					System.out.println("Phone: " + phone.matches(PHONE_REGEX));
+				}
+			
+		} catch(Exception ex) {
+			ex.printStackTrace();
+		}
 	}
 	
 	private void showStudentEditForm(HttpServletRequest request, HttpServletResponse response) {
 		String str_studentId = request.getParameter("id");
+		
+		 try {
+				request.setCharacterEncoding("UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		
 		try {
 			int studentId = Integer.parseInt(str_studentId);

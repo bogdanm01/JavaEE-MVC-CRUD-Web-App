@@ -41,7 +41,8 @@
       	<a href="StudentController?action=showStudentList" class="btn back"><i class="fa-solid fa-circle-chevron-left"></i> Nazad</a>
         <div class="form-wrap">
           <h1>Izmena detalja polaznika</h1>
-          <form action="" method="get">
+          <form action="StudentController" method="post">
+          <input type = "hidden" name="id" value = <%= currentStudent.getId() %>>
             <div class="input-group">
               <label for="">Ime</label>
               <input type="text" name="firstName" id="firstName" value=<%= currentStudent.getFirstName() %> required/>
@@ -69,7 +70,7 @@
                 <input 
                 type="radio" 
                 name="learningMethod" 
-                value="online" 
+                value="Onlajn" 
                 <% if(currentStudent.getLearningMethod().equalsIgnoreCase("onlajn")) { out.print("checked"); }  %>
                 />
                 <label for="">Online - putem Skype-a</label>
@@ -77,14 +78,14 @@
               <span><input
                   type="radio"
                   name="learningMethod"
-                  value="in-person"
+                  value="Uživo"
                   <% if(currentStudent.getLearningMethod().equalsIgnoreCase("uživo")) { out.print("checked"); }  %>
                 />
                 <label for="">Uzivo - u ucionici</label></span
               >
             </div>
             
-            <button value="editStudent" name="action">Izmeni</button>
+            <button type="submit" name="action" value="editStudent">Izmeni</button>
           </form>
         </div>       
       </section>

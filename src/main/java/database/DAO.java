@@ -17,10 +17,32 @@ public class DAO {
 	private static String INSERT_STUDENT = "INSERT INTO students VALUES (null, ?, ?, ?, ?, ?, ?)";
 	private static String SELECT_ALL_STUDENTS = "SELECT * FROM students";
 	private static String GET_STUDENT_BY_ID = "SELECT * FROM students WHERE id = ?";
-	private static String UPDATE_STUDENT = "UPDATE students SET first_name = ?, last_name = ?, phone = ?, email = ?, city = ?, learning_method = ?";
+	private static String UPDATE_STUDENT = "UPDATE students SET first_name = ?, last_name = ?, phone = ?, email = ?, city = ?, learning_method = ? WHERE id = ?";
 	private static String DELETE_STUDENT = "DELETE FROM students WHERE id = ?";
 	
 	private static String INSERT_COURSE = "INSERT INTO courses VALUES(null, ?, ?)";
+	
+	public int updateStudent (Student updatedStudent) {
+		try (Connection sqlConnection = dbManager.getConnection();
+			PreparedStatement prepStatement = sqlConnection.prepareStatement(UPDATE_STUDENT);) {
+			
+			prepStatement.setString(1, updatedStudent.getFirstName());
+			prepStatement.setString(2, updatedStudent.getLastName());
+			prepStatement.setString(3, updatedStudent.getPhone());
+			prepStatement.setString(4, updatedStudent.getEmail());
+			prepStatement.setString(5, updatedStudent.getCity());
+			prepStatement.setString(6, updatedStudent.getLearningMethod());
+			prepStatement.setInt(7, updatedStudent.getId());
+			
+			prepStatement.execute();
+			
+			return 1;
+			
+		} catch(SQLException ex) {
+			ex.printStackTrace();
+			return -1;
+		}
+	}
 	
 	public int insertStudent (Student student) {
 		// TRY-WITH-RESOURCES -> Automatski zatvara konekciju i statement
