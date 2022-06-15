@@ -78,8 +78,8 @@
               <span><input
                   type="radio"
                   name="learningMethod"
-                  value="Uživo"
-                  <% if(currentStudent.getLearningMethod().equalsIgnoreCase("uživo")) { out.print("checked"); }  %>
+                  value="Uzivo"
+                  <% if(currentStudent.getLearningMethod().equalsIgnoreCase("uzivo")) { out.print("checked"); }  %>
                 />
                 <label for="">Uzivo - u ucionici</label></span
               >

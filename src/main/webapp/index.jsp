@@ -69,7 +69,7 @@ pageEncoding="UTF-8"%> <!-- PROMENJEN ENCODING NA UTF-8 -->
               <span><input
                   type="radio"
                   name="learningMethod"
-                  value="Uživo"
+                  value="Uzivo"
                   id=""
                 />
                 <label for="">Uživo - u učionici</label></span
